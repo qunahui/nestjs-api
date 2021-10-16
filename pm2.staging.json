@@ -1,0 +1,12 @@
+{
+  "apps": [
+    {
+      "name": "cooking-api_staging",
+      "script": "./dist/main.js",
+      "env": {
+        "PORT": 8001,
+        "NODE_ENV": "development"
+      }
+    }
+  ]
+}
