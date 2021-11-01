@@ -5,13 +5,18 @@ import {
   CreatedAt,
   DeletedAt,
   UpdatedAt,
-  TableOptions
+  TableOptions,
+  Table,
+  BelongsToMany
 } from 'sequelize-typescript';
+import { Role } from 'src/modules/roles/entities/role.entity';
+import { UserRole } from './user-role.entity';
 
 const tableOptions: TableOptions = {
   tableName: 'users',
 } as TableOptions;
 
+@Table(tableOptions)
 export class User extends Model<User> {
   @Column({
     type: DataType.BIGINT,
@@ -53,6 +58,9 @@ export class User extends Model<User> {
     }
   })
   public phone: string;
+
+  @BelongsToMany(() => Role, () => UserRole)
+  roles: Role[];
 
   @CreatedAt public createdAt: Date;
 
