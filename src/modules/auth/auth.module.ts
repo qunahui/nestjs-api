@@ -1,5 +1,4 @@
 import { Module } from '@nestjs/common';
-import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule } from '@nestjs/config';
 import { PassportModule } from '@nestjs/passport';
 import { UsersModule } from '../users/users.module';
@@ -12,10 +11,6 @@ import { LocalStrategy } from './strategies/local.strategy';
   imports: [
     ConfigModule.forRoot(),
     PassportModule,
-    JwtModule.register({
-      secret: process.env.JWT_SECRET,
-      signOptions: { expiresIn: '30d' },
-    }),
     UsersModule,
   ],
   controllers: [AuthController],
