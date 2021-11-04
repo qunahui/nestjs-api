@@ -4,7 +4,7 @@ export class JoinRoomDto {
   @IsString()
   @MaxLength(1000)
   @IsNotEmpty()
-  readonly roomId: string;
+  readonly roomId: number;
 
   @IsString()
   @MaxLength(1000)

@@ -27,12 +27,12 @@ export class Room extends Model<Room> {
   id: number;
 
   @HasMany(() => Participant)
-  onlineParticipants: Participant[];
+  onlineParticipants?: Participant[];
   
   @HasMany(() => Participant)
-  messages: Message[];
+  messages?: Message[];
   
-  @CreatedAt public createdAt: Date;
+  @CreatedAt public createdAt?: Date;
 
-  @UpdatedAt public updatedAt: Date;
+  @UpdatedAt public updatedAt?: Date;
 }

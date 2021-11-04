@@ -5,6 +5,7 @@ import { AuthModule } from './modules/auth/auth.module';
 import { UsersModule } from './modules/users/users.module';
 import { DatabaseModule } from './core/database/database.module';
 import { RolesModule } from './modules/roles/roles.module';
+import { MessagesModule } from './modules/messages/messages.module'
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -26,6 +27,7 @@ import { RolesGuard } from './core/guards'
     UsersModule, 
     DatabaseModule, 
     RolesModule,
+    MessagesModule,
   ],
   controllers: [AppController],
   providers: [
