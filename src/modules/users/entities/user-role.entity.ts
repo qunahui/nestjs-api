@@ -7,6 +7,7 @@ import {
   Model,
   TableOptions,
   ForeignKey,
+  BelongsTo,
 } from 'sequelize-typescript';
 
 const tableOptions: TableOptions = {
@@ -22,4 +23,9 @@ export class UserRole extends Model<UserRole> {
   @ForeignKey(() => Role)
   @Column
   roleId: number;
+
+  @BelongsTo(() => User)
+  user: User;
+  @BelongsTo(() => Role)
+  role: Role;
 }

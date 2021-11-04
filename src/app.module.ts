@@ -1,6 +1,4 @@
-import * as redisStore from 'cache-manager-redis-store';
-import { CacheModule, Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
+import { Module } from '@nestjs/common';
 import { AuthModule } from './modules/auth/auth.module';
 import { UsersModule } from './modules/users/users.module';
 import { DatabaseModule } from './core/database/database.module';
@@ -13,16 +11,11 @@ import { AppService } from './app.service';
 import { APP_GUARD } from '@nestjs/core';
 import { JwtAuthGuard } from './modules/auth/guards/jwt-auth.guard';
 import { RolesGuard } from './core/guards'
+import { CoreModule } from './modules/core/core.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({ isGlobal: true }), 
-    CacheModule.register({
-      store: redisStore,
-      url: process.env.REDIS_URL,
-      ttl: 48 * 60 * 60,
-      isGlobal: true,
-    }),
+    CoreModule,
     AuthModule, 
     UsersModule, 
     DatabaseModule, 
