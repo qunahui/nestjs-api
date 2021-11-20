@@ -7,6 +7,7 @@ import {
   CreatedAt,
   UpdatedAt,
   BelongsTo,
+  ForeignKey,
 } from 'sequelize-typescript';
 import { Participant } from './participant.entity'
 
@@ -24,6 +25,9 @@ export class Message extends Model<Message> {
     primaryKey: true,
   })
   id: number;
+
+  @ForeignKey(() => Participant)
+  participantId: number;
 
   @BelongsTo(() => Participant)
   participant: Participant;

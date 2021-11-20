@@ -6,7 +6,9 @@ import {
   TableOptions,
   CreatedAt,
   UpdatedAt,
+  ForeignKey,
 } from 'sequelize-typescript';
+import { Room } from './room.entity';
 
 const tableOptions: TableOptions = {
   tableName: 'participants'
@@ -33,6 +35,7 @@ export class Participant extends Model<Participant> {
     type: DataType.INTEGER,
     allowNull: false,
   })
+  @ForeignKey(() => Room)
   roomId: number;
 
   @Column({

@@ -4,6 +4,9 @@ import { SEQUELIZE, DEVELOPMENT, TEST, PRODUCTION } from '../constants';
 import { User } from 'src/modules/users/entities/user.entity';
 import { UserRole } from 'src/modules/users/entities/user-role.entity';
 import { Role } from 'src/modules/roles/entities/role.entity';
+import { Message } from 'src/modules/messages/entities/message.entity';
+import { Participant } from 'src/modules/messages/entities/participant.entity';
+import { Room } from 'src/modules/messages/entities/room.entity';
 
 export const databaseProviders = [
   {
@@ -29,6 +32,9 @@ export const databaseProviders = [
         User,
         Role,
         UserRole,
+        Message,
+        Participant,
+        Room,
       ])
       
       await sequelize.sync();
